@@ -5,7 +5,12 @@ import * as schema from "@shared/schema";
 
 // Use the AWS RDS PostgreSQL connection string
 const getDatabaseUrl = () => {
-  // Use AWS RDS connection details
+  // Use Railway's DATABASE_URL if available
+  if (process.env.DATABASE_URL) {
+    return process.env.DATABASE_URL;
+  }
+
+  // Fallback to AWS RDS connection details
   const host = 'controlehoras-db.c8pqeqc0u2u5.us-east-1.rds.amazonaws.com';
   const port = '5432';
   const database = 'controlehoras';
