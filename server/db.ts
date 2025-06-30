@@ -1,9 +1,7 @@
 import pkg from 'pg';
 const { Pool } = pkg;
 import { drizzle } from 'drizzle-orm/node-postgres';
-import * as schema from "@shared/schema";
-
-const getDatabaseUrl = () => {
+import * as schema from "@shared/schemaconst getDatabaseUrl = () => {
   // In production (Railway), DATABASE_URL is required.
   if (process.env.NODE_ENV === 'production') {
     if (!process.env.DATABASE_URL) {
